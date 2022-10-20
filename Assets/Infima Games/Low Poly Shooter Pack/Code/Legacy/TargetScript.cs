@@ -42,6 +42,9 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 			//If the target is hit
 			if (isHit == true)
 			{
+
+				HitCounter.HitInstance += 1f;
+
 				if (routineStarted == false)
 				{
 					//Animate the target "down"
