@@ -16,6 +16,8 @@ TagManager:
   - Wood (Static)
   - Dirt (Static)
   - Wood
+  - TimerStart
+  - TimerStop
   layers:
   - Default
   - TransparentFX

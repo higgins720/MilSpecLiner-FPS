@@ -7,22 +7,29 @@ public class HitCounter : MonoBehaviour
 {
     public TextMeshProUGUI HitText;
     public TextMeshProUGUI TimeText;
+
     public static float HitInstance;
-    public bool TimerStart;
+    public static bool TimerRunning;
+
+    public float recordedTime = 0;
 
     void Start()
     {
         HitInstance = 0f;
+        TimerRunning = false;
     }
 
-    void Update()
+    private void Update()
     {
 
-        while (TimerStart == true) {
-            // start timer
-            TimeText.text = "Clock is running";
+        Time.timeScale = 1.0f;
+
+        if (TimerRunning) {
+            recordedTime += Time.deltaTime;
         }
 
+        TimeText.text = Mathf.RoundToInt(recordedTime).ToString();
+        
         HitText.text = "Hits = " + HitInstance;
     }
 }
