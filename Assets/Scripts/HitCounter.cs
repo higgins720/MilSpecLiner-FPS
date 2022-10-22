@@ -5,8 +5,10 @@ using TMPro;
 
 public class HitCounter : MonoBehaviour
 {
-    public TextMeshProUGUI progressText;
+    public TextMeshProUGUI HitText;
+    public TextMeshProUGUI TimeText;
     public static float HitInstance;
+    public bool TimerStart;
 
     void Start()
     {
@@ -15,6 +17,12 @@ public class HitCounter : MonoBehaviour
 
     void Update()
     {
-        progressText.text = "Hits = " + HitInstance;
+
+        while (TimerStart == true) {
+            // start timer
+            TimeText.text = "Clock is running";
+        }
+
+        HitText.text = "Hits = " + HitInstance;
     }
 }
