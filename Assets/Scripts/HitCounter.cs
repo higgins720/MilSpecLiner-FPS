@@ -5,35 +5,52 @@ using TMPro;
 
 public class HitCounter : MonoBehaviour
 {
-    public TextMeshProUGUI HitText;
-    public TextMeshProUGUI TimeText;
+    // Amount of targets eliminated
+    public static float hitNumber;
 
-    public static float HitInstance;
-
-    // For counting down minimum completion time
-    public static int StopWatch;
     // For recording actual completion time
-    public static bool TimerRunning;
+    public static bool timerRunning;
 
-    private float recordedTime;
+    public TextMeshProUGUI hitText;
+    public TextMeshProUGUI timeText;
+
+    public float timeToComplete;
+    public float numberOfTargets;
+
+    private float endTime;
+
+    // Should an end screen appear with an option to restart?
+    public float endScreen;
 
     void Start()
     {
-        recordedTime = 0.0f;
-        HitInstance = 0f;
-        TimerRunning = false;
+        hitNumber = 0f;
+        timerRunning = false;
     }
 
     private void Update()
     {
-        //Time.timeScale = 1.0f;
-        // Time
-        if (TimerRunning) {
-            recordedTime += ((Time.deltaTime * 100)/100);
+        if (timerRunning) {
+            endTime = timeToComplete -= Time.deltaTime;
+            SetTimerText();
+            SetHitText();
+            if (endTime <= 0.00f) {
+                endTime = 0.00f;
+                SetTimerText();
+                timeText.color = Color.red;
+                enabled = false;
+            }
         }
-
-        TimeText.text = recordedTime.ToString();
-        
-        HitText.text = "Hits = " + HitInstance;
     }
+
+    private void SetTimerText()
+    {
+        timeText.text = endTime.ToString("0.00");
+    }
+
+    private void SetHitText()
+    {
+        hitText.text = "Hits = " + hitNumber + " / " + numberOfTargets;
+    }
+
 }

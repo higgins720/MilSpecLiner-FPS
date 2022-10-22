@@ -45,7 +45,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 				if (routineStarted == false)
 				{
 					// Add one to hit count
-					HitCounter.HitInstance += 1f;
+					HitCounter.hitNumber += 1f;
 
 					//Animate the target "down"
 					gameObject.GetComponent<Animation>().clip = targetDown;

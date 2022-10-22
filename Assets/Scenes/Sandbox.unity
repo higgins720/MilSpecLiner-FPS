@@ -4188,8 +4188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23a9cad779ddcd4d84b5673c54d3552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfTargets: 12
-  SecondsToComplete: 30
 --- !u!1001 &320706660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10128,8 +10126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7b68da10a9c2547907ac952adf0d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitText: {fileID: 1348431811}
-  TimeText: {fileID: 1818059909}
+  hitText: {fileID: 1348431811}
+  timeText: {fileID: 1818059909}
+  timeToComplete: 30
+  numberOfTargets: 16
 --- !u!1001 &860812764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16956,7 +16956,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hits = 0
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 872d4ef16428fcf4c93352f8aa5cb271, type: 2}
   m_sharedMaterial: {fileID: 5913812290515290826, guid: 872d4ef16428fcf4c93352f8aa5cb271,
@@ -22356,7 +22356,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0.00
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 872d4ef16428fcf4c93352f8aa5cb271, type: 2}
   m_sharedMaterial: {fileID: 5913812290515290826, guid: 872d4ef16428fcf4c93352f8aa5cb271,
