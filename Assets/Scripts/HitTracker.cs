@@ -8,9 +8,13 @@ public class HitTracker : MonoBehaviour
     //public TargetScript TargetScript;
     //public GameObject target;
 
+    public bool isHit;
+
     private void hitRecord()
     {
-        //Debug.Log(TargetScript.isHit);
+        if (isHit == true) {
+            Debug.Log("HIT");
+        }
     }
     
 }

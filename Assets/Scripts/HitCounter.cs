@@ -6,19 +6,11 @@ using TMPro;
 public class HitCounter : MonoBehaviour
 {
     public TextMeshProUGUI progressText;
-    private float hitNumber;
-    public static float HitInstance = 1f;
+    public static float HitInstance;
 
-    //private void addHit() {
-        //if (TargetScript.isHit = true) {
-            //hitNumber += 1f;
-        //}
-    //}
-
-    // Start is called before the first frame update
     void Start()
     {
-        hitNumber = 0;
+        HitInstance = 0f;
     }
 
     void Update()
