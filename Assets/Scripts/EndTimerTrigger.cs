@@ -6,7 +6,7 @@ public class EndTimerTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider collision) {
         if(collision.gameObject.CompareTag("Player")) {
-            HitCounter.timerRunning = false;
+            HitCounter.courseComplete = true;
         }
     }
 }
