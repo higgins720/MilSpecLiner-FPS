@@ -746,12 +746,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7b68da10a9c2547907ac952adf0d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToComplete: 10
+  targetAmount: 3
   hitText: {fileID: 5118844117787740318}
   timeText: {fileID: 5118844117049410520}
   scoreScreenGUI: {fileID: 5118844118929382260}
-  timeToComplete: 30
-  numberOfTargets: 16
-  showScoreScreen: 1
 --- !u!1 &5118844118505827308
 GameObject:
   m_ObjectHideFlags: 0

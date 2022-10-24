@@ -16,6 +16,9 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 
 		[Header("Customizable Options")]
 		//Minimum time before the target goes back up
+		public bool trackHits;
+
+		//Minimum time before the target goes back up
 		public float minTime;
 
 		//Maximum time before the target goes back up
@@ -44,9 +47,6 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 			{
 				if (routineStarted == false)
 				{
-					// Add one to hit count
-					HitCounter.hitNumber += 1f;
-
 					//Animate the target "down"
 					gameObject.GetComponent<Animation>().clip = targetDown;
 					gameObject.GetComponent<Animation>().Play();
@@ -54,6 +54,11 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 					//Set the downSound as current sound, and play it
 					audioSource.GetComponent<AudioSource>().clip = downSound;
 					audioSource.Play();
+
+					// Record hit, if enabled
+					if (trackHits) {
+						HitCounter.hitNumber += 1f;
+					}
 
 					//Start the timer
 					StartCoroutine(DelayTimer());

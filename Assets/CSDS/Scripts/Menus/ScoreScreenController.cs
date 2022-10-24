@@ -8,8 +8,8 @@ public class ScoreScreenController : MonoBehaviour
 {
 
     #region FIELDS SERIALIZED
-        
-    [Title(label: "Components")]
+
+    [Title(label: "Animations")]
 
     [Tooltip("Canvas to play animations on.")]
     [SerializeField]
