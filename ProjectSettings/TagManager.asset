@@ -18,6 +18,7 @@ TagManager:
   - Wood
   - TimerStart
   - TimerStop
+  - CourseTarget
   layers:
   - Default
   - TransparentFX

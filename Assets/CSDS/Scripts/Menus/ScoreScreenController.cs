@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class ScoreScreenController : MonoBehaviour
 {
@@ -87,6 +88,9 @@ public class ScoreScreenController : MonoBehaviour
             //Play Clip.
             animationComponent.clip = animationShow;
             animationComponent.Play();
+
+            // Show Scores
+            //CalculateScores();
         }
 
         public void Restart()

@@ -452,6 +452,9 @@ namespace InfimaGames.LowPolyShooterPack
                 GameObject projectile = Instantiate(prefabProjectile, playerCamera.position, Quaternion.Euler(playerCamera.eulerAngles + spreadValue));
                 //Add velocity to the projectile.
                 projectile.GetComponent<Rigidbody>().velocity = projectile.transform.forward * projectileImpulse;
+
+                //Send data
+                HitCounter.ssShotsFired += 1f;
             }
         }
 

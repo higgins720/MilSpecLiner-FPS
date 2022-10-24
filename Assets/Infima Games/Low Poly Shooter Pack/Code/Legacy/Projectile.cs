@@ -129,6 +129,16 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 				Destroy(gameObject);
 			}
 
+			//If bullet collides with "CourseTarget" tag
+			if (collision.transform.tag == "CourseTarget")
+			{
+				//Toggle "isHit" on target object
+				collision.transform.gameObject.GetComponent
+					<CourseTargetScript>().isHit = true;
+				//Destroy bullet object
+				Destroy(gameObject);
+			}
+
 			//If bullet collides with "ExplosiveBarrel" tag
 			if (collision.transform.tag == "ExplosiveBarrel")
 			{
