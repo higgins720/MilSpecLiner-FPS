@@ -38,6 +38,7 @@ public class ScoreScreenController : MonoBehaviour
         private bool menuIsEnabled;
 
         private PlayerInput fpsControls;
+        private GameObject hudCanvas;
 
     #endregion
 
@@ -91,6 +92,9 @@ public class ScoreScreenController : MonoBehaviour
 
             // Show Scores
             //CalculateScores();
+
+            hudCanvas = GameObject.Find("P_LPSP_UI_Canvas(Clone)");
+            Destroy(hudCanvas);
         }
 
         public void Restart()

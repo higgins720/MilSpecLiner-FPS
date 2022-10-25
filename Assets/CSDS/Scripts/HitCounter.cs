@@ -94,7 +94,7 @@ public class HitCounter : MonoBehaviour
         } else {
 
             SetTimerText();
-            hitText.text = ssHitNumber + " / " + targetAmount;
+            hitText.text = ssHitNumber + "/" + targetAmount;
 
             // Time ticks down
             endTime = timeToComplete -= Time.deltaTime;
@@ -105,10 +105,6 @@ public class HitCounter : MonoBehaviour
                 timeText.color = Color.red;
                 SetTimerText();
                 enabled = false;
-
-                //courseComplete = true;
-                //timerRunning = false;
-                //StartCoroutine(ScoreScreen());
             }
 
             // End Timer Trigger sets course complete to true
@@ -116,7 +112,6 @@ public class HitCounter : MonoBehaviour
             {
                 StartCoroutine(ScoreScreen());
                 SetTimerText();
-                //timerRunning = false;
                 enabled = false;
             }
 
@@ -127,37 +122,44 @@ public class HitCounter : MonoBehaviour
         timeText.text = endTime.ToString("0.00");
     }
 
+    IEnumerator ScoreScreen()
+    {
+        CalculateScores();
+        yield return new WaitForSeconds(1);
+        scoreScreenGUI.GetComponent<ScoreScreenController>().Show();
+    }
+
     private void ConvertToGrade(float grade) {
 
         if (grade >= 130.0f) 
         {
-            gradeScore = "S++";
+            GradeText.text = "S++";
         } 
         else if (grade >= 120.0f && grade < 130.0f) 
         {
-            gradeScore = "S+";
+            GradeText.text = "S+";
         } 
         else if (grade >= 110.0f && grade < 120.0f)
         {
-            gradeScore = "S";
+            GradeText.text = "S";
         }
         else if (grade >= 100.0f && grade < 110.0f)
         {
-            gradeScore = "A+";
+            GradeText.text = "A+";
         }
         else if (grade >= 90.0f && grade < 100.0f)
         {
-            gradeScore = "A";
+            GradeText.text = "A";
         }
         else if (grade >= 80.0f && grade < 90.0f)
         {
-            gradeScore = "B";
+            GradeText.text = "B";
         }
         else if (grade >= 70.0f && grade < 80.0f)
         {
-            gradeScore = "C";
+            GradeText.text = "C";
         } else {
-            gradeScore = "D";
+            GradeText.text = "D";
         }
         
     }
@@ -171,23 +173,12 @@ public class HitCounter : MonoBehaviour
         AccuracyScoreText.text = accuracyScore.ToString("0.0") + "%";
 
         timeBonus = ((endTime / originalTime) * 100);
-        Debug.Log("Time Bonus = " + timeBonus);
         TimeScoreText.text = timeBonus.ToString("0.00");
 
         // Take average of target and accuracy score, and factor in the time multiplier 
         finalScore = ((targetScore + accuracyScore) / 2) + timeBonus;
-        Debug.Log("Final Score = " + finalScore);
 
         ConvertToGrade(finalScore);
-
-        GradeText.text = gradeScore;
-    }
-
-    IEnumerator ScoreScreen()
-    {
-        CalculateScores();
-        yield return new WaitForSeconds(1);
-        scoreScreenGUI.GetComponent<ScoreScreenController>().Show();
     }
 
 }
