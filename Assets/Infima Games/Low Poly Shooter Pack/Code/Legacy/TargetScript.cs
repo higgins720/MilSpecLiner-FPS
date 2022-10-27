@@ -57,7 +57,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 
 					// Record hit, if enabled
 					if (trackHits) {
-						HitCounter.ssHitNumber += 1f;
+						HitTracker.HitsRecorded += 1;
 					}
 
 					//Start the timer
