@@ -5,6 +5,14 @@ using TMPro;
 
 public class TimerScript : MonoBehaviour
 {
+    #region PARENT SCRIPT
+
+    [SerializeField]
+    ShootingRangeScript shootingRangeScript;
+
+    #endregion
+
+    #region FIELDS SERIALIZED
 
     [SerializeField]
     private TextMeshProUGUI timerText;
@@ -14,9 +22,6 @@ public class TimerScript : MonoBehaviour
     [SerializeField]
     private float countDownStart;
 
-    [SerializeField]
-    private float timeWarning;
-
     [Title(label: "Count Up")]
 
     [SerializeField]
@@ -24,41 +29,59 @@ public class TimerScript : MonoBehaviour
 
     [SerializeField]
     private float countUpEnd;
-    
-    private float time;
 
-    public static bool TimerIsDone;
+    #endregion
+
+    [HideInInspector]
+    public bool TimerIsDone;
+
+    private bool timerStart;
+
+    [HideInInspector]
+    public bool TimerIsRunning;
+
+    private float time;
 
     void Start() 
     {
         time = 0.0f;
+        timerStart = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!countUp) {
-            time = countDownStart -= Time.deltaTime;
-            showTime();
-            if (time <= 0.0f) {
-                time = 0.0f;
+        if (timerStart)
+        {
+            if (!countUp)
+            {
+                time = countDownStart -= Time.deltaTime;
                 showTime();
-                TimerIsDone = true;
-                enabled = false;
+                if (time <= 0.0f)
+                {
+                    time = 0.0f;
+                    showTime();
+                    TimerIsDone = true;
+                    enabled = false;
+                }
             }
-        } else if (countUp) {
-            time += Time.deltaTime;
-            showTime();
-            if (time >= countUpEnd) {
-                time = countUpEnd;
+            else if (countUp)
+            {
+                time += Time.deltaTime;
                 showTime();
-                TimerIsDone = true;
-                enabled = false;
+                if (time >= countUpEnd)
+                {
+                    time = countUpEnd;
+                    showTime();
+                    TimerIsDone = true;
+                    enabled = false;
+                }
             }
         }
     }
 
-    private void showTime() {
+    private void showTime() 
+    {
         timerText.text = time.ToString("0.00");
     }
 }

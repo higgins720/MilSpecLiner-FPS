@@ -11,6 +11,7 @@ public class HitCounter : MonoBehaviour
 
     [SerializeField]
     private float timeToComplete;
+    
     [SerializeField]
     private float targetAmount;
 
@@ -166,16 +167,19 @@ public class HitCounter : MonoBehaviour
 
     private void CalculateScores() 
     {
-        targetScore = ((ssHitNumber / targetAmount) * 100);
         TargetScoreText.text = ssHitNumber.ToString() + "/" + targetAmount.ToString();
 
-        accuracyScore = ((ssHitNumber / ssShotsFired) * 100);
-        AccuracyScoreText.text = accuracyScore.ToString("0.0") + "%";
+        if (ssShotsFired > 0) {
+            accuracyScore = ((ssHitNumber / ssShotsFired) * 100);
+            AccuracyScoreText.text = accuracyScore.ToString("0.0") + "%";
+        } 
 
         timeBonus = ((endTime / originalTime) * 100);
         TimeScoreText.text = timeBonus.ToString("0.00");
 
         // Take average of target and accuracy score, and factor in the time multiplier 
+        targetScore = ((ssHitNumber / targetAmount) * 100.0f);
+
         finalScore = ((targetScore + accuracyScore) / 2) + timeBonus;
 
         ConvertToGrade(finalScore);

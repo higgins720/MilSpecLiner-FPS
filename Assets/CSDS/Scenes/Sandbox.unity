@@ -3978,6 +3978,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6b7ff8bdc51724a82c87ff2113d5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingRangeScript: {fileID: 0}
+  hitText: {fileID: 0}
+  hitMarker: {fileID: 0}
 --- !u!1001 &385787737
 PrefabInstance:
   m_ObjectHideFlags: 0

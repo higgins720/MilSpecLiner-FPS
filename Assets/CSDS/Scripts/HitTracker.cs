@@ -5,21 +5,12 @@ using TMPro;
 
 public class HitTracker : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI hitText;
+
+    #region PARENT SCRIPT
 
     [SerializeField]
-    private TextMeshProUGUI hitMarker;
-    
-    // Amount of targets eliminated
-    public static int HitsRecorded;
+    ShootingRangeScript shootingRangeScript;
 
-    private void Update() {
-        setHitText();
-    }
-
-    private void setHitText() {
-        hitText.text = HitsRecorded.ToString();
-    }
+    #endregion
 
 }
