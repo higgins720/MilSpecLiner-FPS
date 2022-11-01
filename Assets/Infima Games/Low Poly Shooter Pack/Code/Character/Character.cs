@@ -134,6 +134,7 @@ namespace InfimaGames.LowPolyShooterPack
 
 		#region FIELDS
 
+		private bool targetWasHit;
 		/// <summary>
 		/// True if the character is aiming.
 		/// </summary>

@@ -19,6 +19,7 @@ TagManager:
   - TimerStart
   - TimerStop
   - CourseTarget
+  - HitBox
   layers:
   - Default
   - TransparentFX

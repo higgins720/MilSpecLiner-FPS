@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
-//using UnityEngine.InputSystem;
 
 public class ShootingRangeScript : MonoBehaviour
 {
@@ -18,19 +18,18 @@ public class ShootingRangeScript : MonoBehaviour
     ScoreScreenScript scoreScreenScript;
 
     #endregion
-    #region HIT TRACKER
+    #region HUD GUI
 
     [SerializeField]
     private TextMeshProUGUI hitText;
-
-    [SerializeField]
-    private TextMeshProUGUI hitMarker;
 
     [SerializeField]
     private int targetHitGoal;
 
     // Amount of targets eliminated
     public static int iHitsRecorded;
+
+    public static int iHitBoxPoints;
 
     #endregion
     #region SCORE SCREEN
@@ -63,10 +62,10 @@ public class ShootingRangeScript : MonoBehaviour
         targetScore = 0;
         shotAccuracy = 0;
         finalScore = 0;
-
     }
 
     void Update() {
+
         if (!timerScript.TimerIsDone) 
         {
             hitText.text = iHitsRecorded.ToString();

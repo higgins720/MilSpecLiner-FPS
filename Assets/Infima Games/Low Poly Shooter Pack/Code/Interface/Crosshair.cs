@@ -1,5 +1,5 @@
 ﻿//Copyright 2022, Infima Games. All Rights Reserved.
-
+using System.Collections;
 using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack.Interface
@@ -21,6 +21,10 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         [Tooltip("Little Dot!")]
         [SerializeField, NotNull]
         private CanvasGroup dotCanvasGroup;
+
+        [Tooltip("What shows when you hit something")]
+        [SerializeField, NotNull]
+        private CanvasGroup hitMarkerCanvasGroup;
         
         [Tooltip("This is the rect transform of the object that actually gets scaled to make the crosshair " +
                  "look bigger.")]
@@ -100,6 +104,10 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// </summary>
         private float crosshairVisibility;
         /// <summary>
+        /// HitmMarker Visibility.
+        /// </summary>
+        private float hitMarkerVisibility;
+        /// <summary>
         /// Dot Visibility.
         /// </summary>
         private float dotVisibility;
@@ -108,6 +116,11 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// springCrosshairSizeDelta. Spring used to change the Crosshair's delta size.
         /// </summary>
         private Spring springCrosshairSizeDelta;
+
+        RangeTarget rangeTarget;
+        public bool targetWasHit;
+
+        private int frame;
 
         #endregion
         
@@ -126,15 +139,45 @@ namespace InfimaGames.LowPolyShooterPack.Interface
 
             //Visibility.
             crosshairVisibility = 1.0f;
+            hitMarkerVisibility = 0.0f;
+
+            frame = 0;
+
+            rangeTarget = GameObject.FindWithTag("Target").GetComponent<RangeTarget>();
         }
 
         /// <summary>
         /// Tick.
         /// </summary>
+        
+
+        void Update()
+        {
+            
+            if (rangeTarget.isHit)
+            {
+                
+                hitMarkerVisibility = 1.0f;
+                
+                Debug.Log("Hit");
+                
+                StartCoroutine(DelayReturn());
+            } else {
+                hitMarkerVisibility = 0.0f;
+            }
+
+            hitMarkerCanvasGroup.alpha = hitMarkerVisibility;
+        }
+		private IEnumerator DelayReturn()
+		{
+			yield return new WaitForSeconds(1);
+			rangeTarget.isHit = false;
+		}
+
         protected override void Tick()
         {
             //Check for missing references.
-            if (crosshairCanvasGroup == null || dotCanvasGroup == null || mainRectTransform == null ||
+            if (crosshairCanvasGroup == null || dotCanvasGroup == null || mainRectTransform == null || hitMarkerCanvasGroup == null ||
                 characterBehaviour == null)
             {
                 //Reference Error.
@@ -252,6 +295,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             //Alpha.
             crosshairCanvasGroup.alpha = crosshairVisibility;
             dotCanvasGroup.alpha = dotVisibility;
+            //hitMarkerCanvasGroup.alpha = hitMarkerVisibility;
         }
         
         #endregion

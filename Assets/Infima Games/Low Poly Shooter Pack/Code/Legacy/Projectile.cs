@@ -119,25 +119,32 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 				Destroy(gameObject);
 			}
 
-			//If bullet collides with "Target" tag
-			if (collision.transform.tag == "Target")
+			if (collision.transform.tag == "HitBox")
 			{
 				//Toggle "isHit" on target object
 				collision.transform.gameObject.GetComponent
-					<TargetScript>().isHit = true;
+                    <HitBox>().isHit = true;
+
+				//Tell Character behavior a target has been hit
+				//Crosshair.targetWasHit = true;
+
 				//Destroy bullet object
 				Destroy(gameObject);
 			}
 
-			//If bullet collides with "CourseTarget" tag
-			if (collision.transform.tag == "CourseTarget")
-			{
+            //If bullet collides with "Target" tag
+            if (collision.transform.tag == "Target")
+            {
 				//Toggle "isHit" on target object
-				collision.transform.gameObject.GetComponent
-					<CourseTargetScript>().isHit = true;
-				//Destroy bullet object
-				Destroy(gameObject);
-			}
+                collision.transform.gameObject.GetComponent
+                    <RangeTarget>().isHit = true;
+
+				//Tell Character behavior a target has been hit
+				//Crosshair.targetWasHit = true;
+
+                //Destroy bullet object
+                Destroy(gameObject);
+            }
 
 			//If bullet collides with "ExplosiveBarrel" tag
 			if (collision.transform.tag == "ExplosiveBarrel")
