@@ -12,7 +12,7 @@ public class RangeTarget : MonoBehaviour
 
 		[Header("Customizable Options")]
 		//Minimum time before the target goes back up
-		public bool trackHits;
+		//public bool trackHits;
 
 		//Minimum time before the target goes back up
 		public float minTime;
@@ -32,8 +32,6 @@ public class RangeTarget : MonoBehaviour
 
 		public AudioSource audioSource;
 
-        //ShootingRangeScript shootingRangeScript = new ShootingRangeScript();
-
 		private void Update()
 		{
 
@@ -52,14 +50,6 @@ public class RangeTarget : MonoBehaviour
 					//Set the downSound as current sound, and play it
 					audioSource.GetComponent<AudioSource>().clip = downSound;
 					audioSource.Play();
-
-					// Record hit, if enabled
-					if (trackHits) {
-						ShootingRangeScript.iHitsRecorded += 1;
-						//Debug.Log("+1 Hit");
-					}
-
-                    //shootingRangeScript.hitMarker.color = new Color32(255, 0, 0, 255);
 
 					//Start the timer
 					StartCoroutine(DelayTimer());

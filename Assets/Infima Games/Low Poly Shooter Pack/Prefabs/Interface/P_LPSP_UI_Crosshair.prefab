@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.57752043, b: 0.2396226, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.57752043, b: 0.2396226, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.57752043, b: 0.2396226, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -926,8 +926,8 @@ MonoBehaviour:
   dotCanvasGroup: {fileID: 4314426257684758023}
   hitMarkerCanvasGroup: {fileID: 264132407676253402}
   mainRectTransform: {fileID: 2967879273206399051}
-  minMaxScale: {x: 40, y: 200}
-  defaultScale: 50
+  minMaxScale: {x: 50, y: 200}
+  defaultScale: 70
   interpolationSpeed: 7
   interpolationSpeedDot: 50
   interpolationSizeDelta:
@@ -938,8 +938,8 @@ MonoBehaviour:
   jumpingScaleAddition: 50
   crouchingScaleAddition: -10
   movementScaleAddition: 15
-  disabledVisibility: 0.6
-  runningScaleAddition: 25
+  disabledVisibility: 0
+  runningScaleAddition: 40
   spreadIncrease:
     serializedVersion: 2
     m_Curve:
@@ -973,7 +973,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  targetWasHit: 0
 --- !u!1 &8002040840287748812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,7 +1032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.57752043, b: 0.2396226, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

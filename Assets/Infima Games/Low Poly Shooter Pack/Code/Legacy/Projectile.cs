@@ -30,8 +30,11 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 		public Transform[] dirtImpactPrefabs;
 		public Transform[] concreteImpactPrefabs;
 
+		//Crosshair crosshair;
 		private void Start()
 		{
+			//Gameobject Crosshair = GameObject.Find("P_LPSP_UI_Crosshair").GetComponent<Crosshair>();
+
 			//Grab the game mode service, we need it to access the player character!
 			var gameModeService = ServiceLocator.Current.Get<IGameModeService>();
 			//Ignore the main player character's collision. A little hacky, but it should work.
@@ -125,8 +128,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
 				collision.transform.gameObject.GetComponent
                     <HitBox>().isHit = true;
 
-				//Tell Character behavior a target has been hit
-				//Crosshair.targetWasHit = true;
+				HitManager.Instance.targetHit("critical");
 
 				//Destroy bullet object
 				Destroy(gameObject);
@@ -139,8 +141,7 @@ namespace InfimaGames.LowPolyShooterPack.Legacy
                 collision.transform.gameObject.GetComponent
                     <RangeTarget>().isHit = true;
 
-				//Tell Character behavior a target has been hit
-				//Crosshair.targetWasHit = true;
+				HitManager.Instance.targetHit(null);
 
                 //Destroy bullet object
                 Destroy(gameObject);

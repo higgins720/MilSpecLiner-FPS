@@ -117,10 +117,8 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         /// </summary>
         private Spring springCrosshairSizeDelta;
 
-        RangeTarget rangeTarget;
-        public bool targetWasHit;
-
-        private int frame;
+        private float hmDuration;
+        private float frame;
 
         #endregion
         
@@ -141,39 +139,13 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             crosshairVisibility = 1.0f;
             hitMarkerVisibility = 0.0f;
 
-            frame = 0;
-
-            rangeTarget = GameObject.FindWithTag("Target").GetComponent<RangeTarget>();
+            hmDuration = 0.25f;
+            frame = 0.0f;
         }
 
         /// <summary>
         /// Tick.
         /// </summary>
-        
-
-        void Update()
-        {
-            
-            if (rangeTarget.isHit)
-            {
-                
-                hitMarkerVisibility = 1.0f;
-                
-                Debug.Log("Hit");
-                
-                StartCoroutine(DelayReturn());
-            } else {
-                hitMarkerVisibility = 0.0f;
-            }
-
-            hitMarkerCanvasGroup.alpha = hitMarkerVisibility;
-        }
-		private IEnumerator DelayReturn()
-		{
-			yield return new WaitForSeconds(1);
-			rangeTarget.isHit = false;
-		}
-
         protected override void Tick()
         {
             //Check for missing references.
@@ -212,6 +184,21 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             var crosshairVisibilityTarget = 1.0f;
             //Dot Scale Target.
             var dotVisibilityTarget = 1.0f;
+
+            
+
+            if (HitManager.Instance.criticalHit)
+            {
+                hitMarkerVisibility = 1.0f;
+                frame += Time.deltaTime;
+
+                if (frame >= hmDuration)
+                {
+                    hitMarkerVisibility = 0.0f;
+                    HitManager.Instance.criticalHit = false;
+                    frame = 0;
+                }
+            }
 
             //We completely hide the crosshair, and also the dot, if the character doesn't want it visible.
             //In the future, we will likely change this to all be handled here, and not have any connection
@@ -294,8 +281,8 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             
             //Alpha.
             crosshairCanvasGroup.alpha = crosshairVisibility;
-            dotCanvasGroup.alpha = dotVisibility;
-            //hitMarkerCanvasGroup.alpha = hitMarkerVisibility;
+            dotCanvasGroup.alpha = 0.0f;
+            hitMarkerCanvasGroup.alpha = hitMarkerVisibility;
         }
         
         #endregion
