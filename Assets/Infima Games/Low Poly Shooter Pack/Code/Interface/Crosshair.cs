@@ -185,8 +185,6 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             //Dot Scale Target.
             var dotVisibilityTarget = 1.0f;
 
-            
-
             if (HitManager.Instance.criticalHit)
             {
                 hitMarkerVisibility = 1.0f;

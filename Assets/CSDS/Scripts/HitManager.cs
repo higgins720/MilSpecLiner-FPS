@@ -16,10 +16,11 @@ public class HitManager : MonoBehaviour
         }
     }
 
-    public bool criticalHit;
-    public bool regularHit;
+    [HideInInspector] public bool criticalHit;
+    [HideInInspector] public bool regularHit;
 
-    public void targetHit(string type) {
+    public void targetHit(string type)
+    {
         ShootingRangeScript.iHitsRecorded += 1;
         switch (type)
         {
@@ -37,5 +38,5 @@ public class HitManager : MonoBehaviour
         _instance = this;
         criticalHit = regularHit = false;
     }
-    
+
 }

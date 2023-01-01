@@ -10,16 +10,24 @@ public class HitBox : MonoBehaviour
     [SerializeField]
     private int bonusPoints;
 
-    //Used to check if the target has been hit
+    public AudioSource audioSource;
+
+    public AudioClip hit;
 
     [HideInInspector]
 	public bool isHit = false;
 
-    // Update is called once per frame
+    void Start() {
+        audioSource.GetComponent<AudioSource>().clip = hit;
+    }
+
     void Update()
     {
         if (isHit == true)
 			{
+                
+                audioSource.PlayOneShot(hit, 0.7f);
+
                 Target.GetComponent<RangeTarget>().isHit = true;
                 ShootingRangeScript.iHitBoxPoints = bonusPoints;
                 isHit = false;
