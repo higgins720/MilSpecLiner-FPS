@@ -102,18 +102,6 @@ public class ShootingRangeScript : MonoBehaviour
         finalScore = ((targetScore + shotAccuracy) / 2);
 
         sLetterGrade = ConvertToGrade(finalScore);
-       
-        // if (iShotsFired > 0 && iHitsRecorded > 0 && targetHitGoal > 0) {
-        //     return;
-        // } else {
-        //     Debug.Log("You can't divide by zero. Try shooting something next time.");
-        // }
-
-        //timeBonus = ((endTime / originalTime) * 100);
-        //TimeScoreText.text = timeBonus.ToString("0.00");
-
-        // Take average of target and accuracy score, and factor in the time multiplier 
-        //targetScore = ((ssHitNumber / targetHitGoal) * 100.0f);
     }
 
     private string ConvertToGrade(float finalScore) {

@@ -30,54 +30,92 @@ public class TimerScript : MonoBehaviour
     [SerializeField]
     private float countUpEnd;
 
+    [Title(label: "Triggers")]
+
+    [SerializeField] 
+    private bool startOnTrigger;
+
+    [SerializeField] 
+    private GameObject startTrigger;
+
+    [SerializeField]
+    private bool endOnTrigger;
+
+    [SerializeField] 
+    private GameObject endTrigger;
+
     #endregion
 
     [HideInInspector]
     public bool TimerIsDone;
 
-    private bool timerStart;
-
     [HideInInspector]
-    public bool TimerIsRunning;
+    public bool timerStart;
+
+    //[HideInInspector]
+    //public bool TimerIsRunning;
 
     private float time;
 
+    // TODO: Code conditional start/end with triggers.
     void Start() 
     {
         time = 0.0f;
-        timerStart = true;
+        if (!startOnTrigger) {
+            timerStart = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (startOnTrigger && startTrigger.GetComponent<StartTimerTrigger>().triggered) {
+            timerStart = true;
+        }
+
         if (timerStart)
         {
+            // Count down timer
             if (!countUp)
             {
                 time = countDownStart -= Time.deltaTime;
                 showTime();
+                if (endOnTrigger && endTrigger.GetComponent<EndTimerTrigger>().triggered) {
+                    stopTimer(time);
+                    enabled = false;
+                }
                 if (time <= 0.0f)
                 {
-                    time = 0.0f;
-                    showTime();
-                    TimerIsDone = true;
+                    stopTimer(0.0f);
+                    //showTime();
                     enabled = false;
                 }
             }
+            // Count up timer
             else if (countUp)
             {
                 time += Time.deltaTime;
                 showTime();
+                
+                if (endOnTrigger && endTrigger.GetComponent<EndTimerTrigger>().triggered) {
+                    stopTimer(time);
+                    enabled = false;
+                }
                 if (time >= countUpEnd)
                 {
-                    time = countUpEnd;
-                    showTime();
-                    TimerIsDone = true;
+                    stopTimer(countUpEnd);
+                    //showTime();
                     enabled = false;
                 }
             }
         }
+        
+    }
+
+    private void stopTimer(float t) {
+        time = t;
+        TimerIsDone = true;
     }
 
     private void showTime() 

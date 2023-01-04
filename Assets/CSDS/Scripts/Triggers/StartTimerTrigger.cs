@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class StartTimerTrigger : MonoBehaviour
 {
+    public bool triggered;
+
+    void start() {
+        triggered = false;
+    }
     private void OnTriggerEnter(Collider collision) {
         if(collision.gameObject.CompareTag("Player")) {
-            HitCounter.timerRunning = true;
+            triggered = true;
         }
     }
 }
