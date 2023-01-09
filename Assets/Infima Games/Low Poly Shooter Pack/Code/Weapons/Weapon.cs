@@ -417,6 +417,7 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         public override void Fire(float spreadMultiplier = 1.0f)
         {
+
             //We need a muzzle in order to fire this weapon!
             if (muzzleBehaviour == null)
                 return;

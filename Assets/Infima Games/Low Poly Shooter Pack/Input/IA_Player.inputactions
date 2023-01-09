@@ -211,6 +211,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "79a51695-9c3f-42c1-82f7-855104b66439",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -585,17 +594,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Inventory Next Wheel",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9837bdb8-e264-4c32-93bf-8013338f5c63",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Lock Cursor",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -54,7 +54,7 @@ public class ScoreScreenScript : MonoBehaviour
         /// <summary>
         /// If true, it means that this menu is enabled and showing properly.
         /// </summary>
-        private bool menuIsEnabled;
+        public static bool menuIsEnabled;
 
         private PlayerInput fpsControls;
         private GameObject hudCanvas;
@@ -151,9 +151,8 @@ public class ScoreScreenScript : MonoBehaviour
 
     public void Quit()
     {
-    // Exit to main menu
-    //SceneManager.LoadScene(0);
-    Application.Quit();
+        // Exit to main menu
+        SceneManager.LoadScene(0);
     }
 
     #endregion

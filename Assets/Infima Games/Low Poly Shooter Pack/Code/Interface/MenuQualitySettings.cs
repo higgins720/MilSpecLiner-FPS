@@ -77,18 +77,18 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         protected override void Tick()
         {
             //Switch. Fades in or out the menu based on the cursor's state.
-            bool cursorLocked = characterBehaviour.IsCursorLocked();
-            switch (cursorLocked)
-            {
-                //Hide.
-                case true when menuIsEnabled:
-                    Hide();
-                    break;
-                //Show.
-                case false when !menuIsEnabled:
-                    Show();
-                    break;
-            }
+            // bool cursorLocked = characterBehaviour.IsCursorLocked();
+            // switch (cursorLocked)
+            // {
+            //     //Hide.
+            //     case true when menuIsEnabled:
+            //         Hide();
+            //         break;
+            //     //Show.
+            //     case false when !menuIsEnabled:
+            //         Show();
+            //         break;
+            // }
         }
 
         #endregion
