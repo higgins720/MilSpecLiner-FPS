@@ -52,8 +52,8 @@ public class PauseMenu : MonoBehaviour
 
     public void HidePauseMenu()
     {
-        MenuCanvas.GetComponent<CanvasGroup>().alpha = 0.0f;
         paused = false;
+        MenuCanvas.GetComponent<CanvasGroup>().alpha = 0.0f;
     }
 
     public void Restart() {
