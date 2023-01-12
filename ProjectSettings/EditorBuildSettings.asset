@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/CSDS/Scenes/DesertOperations.unity
     guid: 9f2876e62ee37f14490e20a8f2fd79d0
+  - enabled: 1
+    path: Assets/CSDS/Scenes/MountainOps.unity
+    guid: 529641ecbd924aa46a0467588b9c094f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9eb07e2d669e9c94e9d7d3c782a916f7,
       type: 2}
