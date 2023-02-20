@@ -24,22 +24,30 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!ScoreScreenScript.menuIsEnabled) {
-            
-            if (Input.GetKeyDown(KeyCode.Escape) && !paused) 
+        if (MenuCanvas != null)
+        {
+            if (!ScoreScreenScript.menuIsEnabled)
             {
-                ShowPauseMenu();
-            } else if (Input.GetKeyDown(KeyCode.Escape) && paused) 
-            {
-                HidePauseMenu();
-            }
 
-            if (paused) {
-                Time.timeScale = 0.0f;
-                Cursor.lockState = CursorLockMode.Confined;
-            } else {
-                Time.timeScale = 1.0f;
-                Cursor.lockState = CursorLockMode.Locked;
+                if (Input.GetKeyDown(KeyCode.Escape) && !paused)
+                {
+                    ShowPauseMenu();
+                }
+                else if (Input.GetKeyDown(KeyCode.Escape) && paused)
+                {
+                    HidePauseMenu();
+                }
+
+                if (paused)
+                {
+                    Time.timeScale = 0.0f;
+                    Cursor.lockState = CursorLockMode.Confined;
+                }
+                else
+                {
+                    Time.timeScale = 1.0f;
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
             }
         }
     }

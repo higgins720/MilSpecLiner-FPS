@@ -444,6 +444,12 @@ Transform:
   m_Father: {fileID: 5124375849013057637}
   m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!82 &351235111 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1277311664580569807, guid: c1e8d3fddd69b8a4e80889a9fdc20c2b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6243287187216211908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &400536288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,12 +519,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1e8d3fddd69b8a4e80889a9fdc20c2b, type: 3}
---- !u!82 &483424322 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 103120812825203803, guid: c6d26c5c4950b5e4bb0bf03a9df06502,
-    type: 3}
-  m_PrefabInstance: {fileID: 1479321096}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &508445732
 GameObject:
   m_ObjectHideFlags: 0
@@ -7701,7 +7701,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: -11.625, z: 46.753}
 --- !u!95 &6026188636996341408
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7718,7 +7718,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!4 &6196241579177229128
 Transform:
   m_ObjectHideFlags: 0
@@ -7839,7 +7839,7 @@ PrefabInstance:
         type: 3}
       propertyPath: audioSource
       value: 
-      objectReference: {fileID: 483424322}
+      objectReference: {fileID: 351235111}
     - target: {fileID: 6243287186950021972, guid: c1e8d3fddd69b8a4e80889a9fdc20c2b,
         type: 3}
       propertyPath: hit
@@ -7849,7 +7849,7 @@ PrefabInstance:
         type: 3}
       propertyPath: audioSource
       value: 
-      objectReference: {fileID: 483424322}
+      objectReference: {fileID: 351235111}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1e8d3fddd69b8a4e80889a9fdc20c2b, type: 3}
 --- !u!1 &6271005941521614388
