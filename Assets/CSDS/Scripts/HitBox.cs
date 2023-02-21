@@ -27,6 +27,7 @@ public class HitBox : MonoBehaviour
 			{
                 
                 audioSource.PlayOneShot(hit, 0.7f);
+                //audioSource.Play();
 
                 Target.GetComponent<RangeTarget>().isHit = true;
                 ShootingRangeScript.iHitBoxPoints = bonusPoints;
